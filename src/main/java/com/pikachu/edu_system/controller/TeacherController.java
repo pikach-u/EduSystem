@@ -4,6 +4,7 @@ import com.pikachu.edu_system.model.Teacher;
 import com.pikachu.edu_system.repository.TeacherRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +22,8 @@ public class TeacherController {
     }
 
     @GetMapping("/add")
-    public String addForm(){
+    public String addForm(Model model){
+        model.addAttribute("teacher", new Teacher());
         return "teacher-form";
     }
 
