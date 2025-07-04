@@ -17,7 +17,9 @@ public class TeacherController {
     private final TeacherRepository teacherRepository;
 
     @GetMapping     //  /teachers
-    public String list(){
+    public String list(Model model) {
+        model.addAttribute("teachers", teacherRepository.findAll());
+
         return "teacher-list";
     }
 

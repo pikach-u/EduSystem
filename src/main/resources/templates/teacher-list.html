@@ -7,5 +7,26 @@
 </head>
 <body>
 <h1>🧑‍🏫 교사 목록</h1>
+
+<p>
+    <a href="/">🏠 홈으로</a>
+    <a href="/teachers/add">➕ 교사 등록</a>
+</p>
+
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>이름</td>
+        <td>액션</td>
+    </tr>
+    </thead>
+    <tbody th:each="teacher: ${teachers}">
+    <tr>
+        <td th:text="${teacher.id}"></td>
+        <td th:text="${teacher.name}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
