@@ -1,8 +1,15 @@
+@font-face {
+    font-family: 'GumiRomanceTTF';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/GumiRomanceTTF.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* 전체 배경 & 기본 폰트 */
 body {
   margin: 0;
   padding: 20px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'GumiRomanceTTF', Arial, sans-serif;
   background-color: #FFF8F0; /* 연한 베이지 */
   color: #5A4E4D;            /* 부드러운 브라운 */
 }

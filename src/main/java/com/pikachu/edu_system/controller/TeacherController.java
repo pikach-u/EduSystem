@@ -14,10 +14,10 @@ public class TeacherController {
     private final TeacherRepository teacherRepository;
 
     @GetMapping
-    public String list(Model model) {
+    public String list(Model model) {   // /teachers로 접속하면 DB에서 모든 교사 목록을 가져옴
         model.addAttribute("teachers", teacherRepository.findAll());
 
-        return "teacher-list";
+        return "teacher-list";  // teacher-list.html에 teachers라는 이름으로 전달
     }
 
     @GetMapping("/add")
