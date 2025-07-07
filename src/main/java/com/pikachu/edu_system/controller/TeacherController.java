@@ -34,6 +34,13 @@ public class TeacherController {
         return "redirect:/teachers";
     }
 
+    @PostMapping("/delete/{id}")    //GetMapping도 되긴함 이건 body에 담아서 보낼수 있음
+    public String delete(@PathVariable int id) {
+        teacherRepository.deleteById(id);
+
+        return "redirect:/teachers";
+    }
+
     @GetMapping("/edit/{id}")
     public String editForm(@PathVariable int id, Model model) {
         model.addAttribute("teacher", teacherRepository.findById(id));
