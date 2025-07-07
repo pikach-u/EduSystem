@@ -22,9 +22,9 @@ public class StudentRepository {
             .build();
 
     public List<Student> findAll() {
-        String sql = "SELECT s.id, s.name, s.score, s.teacher_id, t.name AS teacher_name"
-                + "FROM student s LEFT JOIN teacher t ON s.teacher_id = t.id"
-                + "ORDER BY s.id";
+        String sql = "SELECT s.id, s.name, s.score, s.teacher_id, t.name AS teacher_name " +
+                "FROM student s LEFT JOIN teacher t ON s.teacher_id = t.id " +
+                "ORDER BY s.id";
 
         return jdbcTemplate.query(sql, mapper);
     }
@@ -32,7 +32,7 @@ public class StudentRepository {
     public int save(Student student) {
         return jdbcTemplate.update(
                 "INSERT INTO student (name, score, teacher_id) VALUES (?, ?, ?)",
-                student.getName(), student.getScore(), student.getTeacherName()
+                student.getName(), student.getScore(), student.getTeacherId()
         );
     }
 }
