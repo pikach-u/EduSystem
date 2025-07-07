@@ -34,9 +34,18 @@ public class TeacherController {
         return "redirect:/teachers";
     }
 
-    @PostMapping("/delete/{id}")    //GetMapping도 되긴함 이건 body에 담아서 보낼수 있음
+    @PostMapping("/delete/{id}")
     public String delete(@PathVariable int id) {
-        teacherRepository.deleteById(id);
+        try {
+            int affected = teacherRepository.deleteById(id);
+
+            if (affected == 0) {
+                System.out.println("해당 교사를 찾을 수 없습니다.");
+            }
+        } catch (Exception e) { //외래키로 참조중인 Teacher를 삭제할때
+//          model.addAttribute("error", "에러 발생:" + e.getMessage());
+            System.out.println(e.getMessage()); //참조중인 키는 삭제되지 않고 콘솔에 에러메세지 출력
+        }
 
         return "redirect:/teachers";
     }
